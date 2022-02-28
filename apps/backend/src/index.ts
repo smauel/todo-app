@@ -1,11 +1,10 @@
 import { createServer } from 'rest'
+import { RegisterRoutes } from './routes'
 
 const port = process.env.PORT || 3000
 const server = createServer()
 
-server.get('/todos', (req, res) =>
-  res.json({ todos: [{ name: 'setup repo', status: 'IN_PROGRESS' }] })
-)
+RegisterRoutes(server)
 
 server.listen(port, () => {
   // eslint-disable-next-line no-console
