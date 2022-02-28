@@ -1,12 +1,16 @@
 import { json, urlencoded } from 'body-parser'
-import express from 'express'
+import express, { Router } from 'express'
 import cors from 'cors'
 import { restLogger } from 'logger'
 
 export * from 'tsoa'
 
+export type Options = {
+  RegisterRoutes: (r: Router) => void
+}
+
 // eslint-disable-next-line import/prefer-default-export
-export const createServer = () => {
+export const createServer = ({ RegisterRoutes }: Options) => {
   const app = express()
   app
     .disable('x-powered-by')
@@ -14,6 +18,8 @@ export const createServer = () => {
     .use(json())
     .use(cors())
     .use(restLogger)
+
+  RegisterRoutes(app)
 
   return app
 }
