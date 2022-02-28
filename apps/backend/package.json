@@ -10,7 +10,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "dependencies": {
-    "rest": "*"
+    "rest": "*",
+    "logger": "*"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
