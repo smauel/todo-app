@@ -3,6 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import { restLogger } from 'logger'
 
+export * from 'tsoa'
+
 // eslint-disable-next-line import/prefer-default-export
 export const createServer = () => {
   const app = express()
